@@ -1,3 +1,8 @@
-jbmono/
+# 파이썬 관련 파일
+.venv/
+__pycache__/
+
+# 생성된 파일
+assets/
 out/
-D2Coding-Ver1.3.2-20180524.ttf
+*.zip
