@@ -74,7 +74,7 @@ if subcommand == 'all':
     setup()
     print('[INFO] Build fonts')
     build_font()
-if subcommand == 'setup':
+elif subcommand == 'setup':
     setup()
 elif subcommand == 'build':
     build_font()
