@@ -43,7 +43,7 @@ def build_font():
         jb.paste()
 
         namel = name.split(".")
-        namel[len(namel)-2]+="-Hangul"
+        namel[-2] = replace_name(namel[-2])
 
         jb.familyname = replace_name(jb.familyname)
         jb.fontname = replace_name(jb.fontname)
