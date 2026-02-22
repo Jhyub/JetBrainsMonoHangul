@@ -53,10 +53,19 @@ def build_font():
         sfntNamesStringIdIdx = 2
         subFamily = jb.sfnt_names[subFamilyIdx][sfntNamesStringIdIdx]
 
-        jb.appendSFNTName("English (US)", "Preferred Family", jb.familyname)
-        jb.appendSFNTName("English (US)", "Family", jb.familyname)
-        jb.appendSFNTName("English (US)", "Compatible Full", jb.fullname)
-        jb.appendSFNTName("English (US)", "SubFamily", subFamily)
+        for (language, strid, string) in jb.sfnt_names:
+            if strid == "UniqueID":
+                jb.appendSFNTName(language, strid, f"{jb.fullname} {version_name}")
+            
+            if strid == "Version":
+                jb.appendSFNTName(language, strid, f"{string};Hangulify {version_name}")
+
+            if strid == "Preferred Family":
+                jb.appendSFNTName(language, strid, replace_name(string))
+
+        for (language, strid, string) in jb.sfnt_names:
+            print(language, strid, string)
+
         jb.generate(".".join(namel))
         shutil.move(".".join(namel), out_path+"/"+".".join(namel))
         print("[INFO] Exported "+ ".".join(namel))

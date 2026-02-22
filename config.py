@@ -14,4 +14,6 @@ d2_coding_name = 'D2_Coding.zip'
 d2_coding_width = 1000
 jetbrains_mono_width = 1200
 
+version_name = "master"
+
 use_system_wget = False
