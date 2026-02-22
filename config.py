@@ -16,4 +16,4 @@ jetbrains_mono_width = 1200
 
 version_name = "master"
 
-use_system_wget = False
+block_system_wget = False

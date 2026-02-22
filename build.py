@@ -6,8 +6,16 @@ import sys
 from config import *
 from hangulify import build_font
 
-if not use_system_wget:
+use_system_wget = False
+
+try:
     import wget
+except ImportError:
+    if block_system_wget:
+        sys.stderr.write("[ERROR] Python package 'wget' is not installed, but system wget is blocked.")
+        exit(1)
+    else :
+        use_system_wget = True
 
 def usage():
     print(f'python {sys.argv[0]} <subcommand>')
