@@ -25,14 +25,14 @@ def build_font():
     for i in hangul:
         glyph = d2[i]
         if not glyph.references:
-            add_bearing(glyph, 200)
+            add_bearing(glyph, jetbrains_mono_width - d2_coding_width)
         else:
             for j in glyph.references:
                 refglyph = d2[j[0]]
                 if int(refglyph.width) == jetbrains_mono_width:
                     continue
                 else:
-                    add_bearing(refglyph, 200)
+                    add_bearing(refglyph, jetbrains_mono_width - d2_coding_width)
     d2.copy()
 
     print("[INFO] Merge fonts and output")
