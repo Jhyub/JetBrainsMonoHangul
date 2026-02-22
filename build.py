@@ -51,11 +51,11 @@ def setup():
 
     print('[INFO] Extract JetBrains Mono from zip file')
     with zipfile.ZipFile(f'{download_path}/{jetbrains_mono_name}', 'r') as zip_ref:
-        zip_ref.extractall(download_path)
+        zip_ref.extractall(f"{download_path}/jb")
 
     print('[INFO] Extract D2 Coding from zip file')
     with zipfile.ZipFile(f'{download_path}/{d2_coding_name}', 'r') as zip_ref:
-        zip_ref.extractall(download_path)
+        zip_ref.extractall(f"{download_path}/d2")
 
 def clean():
     print('[INFO] Remove downloaded files')

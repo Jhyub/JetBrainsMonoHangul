@@ -18,7 +18,7 @@ def build_font():
         print(f'[INFO] Make \'{out_path}\' directory')
         os.makedirs(out_path)
 
-    d2 = fontforge.open(f'{download_path}/D2Coding/D2Coding-Ver{d2_coding_version}-{d2_coding_date}.ttf')
+    d2 = fontforge.open(f'{download_path}/d2/D2Coding/D2Coding-Ver{d2_coding_version}-{d2_coding_date}.ttf')
 
     hangul = d2.selection.select(("unicode", "ranges"), 0x3131, 0x318E) \
             .select(("unicode", "ranges", "more"), 0xAC00, 0xD7A3) 
@@ -36,8 +36,8 @@ def build_font():
     d2.copy()
 
     print("[INFO] Merge fonts and output")
-    for name in os.listdir(f'{download_path}/fonts/ttf'):
-        jb = fontforge.open(f"{download_path}/fonts/ttf/{name}")
+    for name in os.listdir(f'{download_path}/jb/fonts/ttf'):
+        jb = fontforge.open(f"{download_path}/jb/fonts/ttf/{name}")
         jb.selection.select(("unicode", "ranges"), 0x3131, 0x318E) \
             .select(("unicode", "ranges", "more"), 0xAC00, 0xD7A3)
         jb.paste()
