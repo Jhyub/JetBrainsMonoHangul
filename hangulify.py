@@ -63,9 +63,6 @@ def build_font():
             if strid == "Preferred Family":
                 jb.appendSFNTName(language, strid, replace_name(string))
 
-        for (language, strid, string) in jb.sfnt_names:
-            print(language, strid, string)
-
         jb.generate(".".join(namel))
         shutil.move(".".join(namel), out_path+"/"+".".join(namel))
         print("[INFO] Exported "+ ".".join(namel))
